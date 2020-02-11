@@ -4,6 +4,11 @@
 : ${UNAME=$(uname)}
 : ${HOSTFILE=$HOME/.ssh/known_hosts}
 
+# brew autocomplete
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
